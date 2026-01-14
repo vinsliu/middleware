@@ -31,7 +31,9 @@
                             <a href="{{ route('products.edit', $product) }}" class="ml-2 text-green-600 underline">
                                 Modifier
                             </a>
+                            @endcan
 
+                            @can('delete', $product)
                             {{-- Supprimer --}}
                             <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline">
                                 @csrf
