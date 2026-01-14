@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        Gate::authorize('viewAny');
+        Gate::authorize('viewAny', Product::class);
 
         $products = Product::with('user')->get();
 
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        Gate::authorize('create');
+        Gate::authorize('create', Product::class);
 
         return view('products.create');
     }
@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('create');
+        Gate::authorize('create', Product::class);
 
         // Validation basique
         $validated = $request->validate([
