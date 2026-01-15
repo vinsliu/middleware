@@ -19,6 +19,6 @@ class RolePermissionSeeder extends Seeder
 
         $viewDashboard = Permission::create(['name' => 'view dashboard']);
 
-        $adminRole->permissions()->sync($viewDashboard->id);
+        $adminRole->givePermissionTo($viewDashboard->id);
     }
 }

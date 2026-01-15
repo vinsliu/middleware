@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        $admin->givePermissionTo('admin');
+        $admin->assignRole('admin');
 
         // Utilisateur "user"
         $user = User::factory()->create([
